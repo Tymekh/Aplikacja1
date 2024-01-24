@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="zegarek()">
+    <div class="container">
+        <header>
+            <a href="index.html"><button>Dom</button></a>
+            <a href="map.html"><button>Mapa</button></a>
+            <a href="kalkulator.html"><button>Kalkulator</button></a>
+        </header>
+        <main>  
+            <div class="kalkulator">
+                <h3>Dzięki temu kalkulatorowi możesz obliczyć dystans między wybranym planetami</h3>
+                <form action="javascript:dystans()">
+                    <div class="lewa">
+                        <label for="planeta1form">Pierwsza planeta:</label><br>
+                        <select name="planeta1form" id="planeta1form">
+                            <option value="1">Słońce</option>
+                            <option value="2">Merkury</option>
+                            <option value="3">Wenus</option>
+                            <option value="4">Ziema</option>
+                            <option value="5">Mars</option>
+                            <option value="6">Jowisz</option>
+                            <option value="7">Saturn</option>
+                            <option value="8">Uran</option>
+                            <option value="9">Neptun</option>
+                        </select>
+                    </div>
+                    <div class="prawa">
+                        <label for="planeta2form">Pierwsza planeta:</label><Br>
+                        <select name="planeta2form" id="planeta2form">
+                            <option value="1">Słońce</option>
+                            <option value="2">Merkury</option>
+                            <option value="3">Wenus</option>
+                            <option value="4">Ziema</option>
+                            <option value="5">Mars</option>
+                            <option value="6">Jowisz</option>
+                            <option value="7">Saturn</option>
+                            <option value="8">Uran</option>
+                            <option value="9">Neptun</option>
+                        </select>
+                    </div><br>
+                    <input type="submit" value="Licz">
+                </form>
+                <div id="wynik">
+                    <div id="km"></div>
+                    <div id="AU"></div>
+                    <div id="LY"></div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <br>
+            <div id="zegar"></div>
+        </footer>
+    </div>
+</body>
+</html>
+<script>
+function zegarek(){
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes(); 
+    var s = date.getSeconds(); 
+    
+    if(h<10){h='0'+h}
+    if(m<10){m='0'+m}
+    if(s<10){s='0'+s}
+    
+    var czas = h + ":" + m + ":" + s;
+    zegar.innerHTML = czas
+    setTimeout(zegarek, 1000);
+}
+const distance = [0,0,57,108,149,228,780,1437,2871,4530]
+function dystans(){
+    var planeta1 = document.getElementById('planeta1form').value
+    var planeta2 = document.getElementById('planeta2form').value
+    var disc = parseInt(Math.abs(distance[planeta1]-distance[planeta2]))
+    console.log(disc)
+    if(planeta1==planeta2){
+        km.innerHTML="Wybierz różne planety"
+        AU.innerHTML=""
+        LY.innerHTML=""
+    }else{
+        km.innerHTML="Odległość to "+disc+" milionów kilometrów"
+        AU.innerHTML="Odległość wynosi "+(disc/146).toFixed(1)+" odległości słońca do ziemi"
+        LY.innerHTML="Odległość wynosi "+((disc/146).toFixed(1)/63241)+" lata świetlne"
+    }
+
+}
+</script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="zegarek()">
+    <div class="container">
+        <header>
+            <a href="index.html"><button>Dom</button></a>
+            <a href="map.html"><button>Mapa</button></a>
+            <a href="kalkulator.html"><button>Kalkulator</button></a>
+        </header>
+        <main>
+            <div class="zdjencia">
+                <div class="buttons">
+                    <img src="img/1.png" alt="sloncie" onclick="planeta(1)">
+                    <img src="img/2.png" alt="merkury" onclick="planeta(2)">
+                    <img src="img/3.png" alt="wenus" onclick="planeta(3)">
+                    <img src="img/4.png" alt="ziemia" onclick="planeta(4)">
+                    <img src="img/5.png" alt="mars" onclick="planeta(5)">
+                    <img src="img/6.png" alt="jowisz" onclick="planeta(6)">
+                    <img src="img/7.png" alt="saturn" onclick="planeta(7)">
+                    <img src="img/8.png" alt="uran" onclick="planeta(8)">
+                    <img src="img/9.png" alt="neptun" onclick="planeta(9)">
+                </div>
+                <div class="napis">
+                    <div id="planeta1">
+                        <h1>Słońce</h1>
+                        Jest w centrum układu słonecznego, jest ok. 109 razy większa od Ziemi (ok. 1 392 684 km). Jego masa wynosi (1.989 &bullet; 10<sup>30</sup>kg) czyli ok. 333 tysiące razy większa niż Ziemi i stanowi ok. 99,86% całkowitej masy układu słonecznego.<br>
+                        W większości składa się z wodoru i helu.
+                    </div>
+                    <div id="planeta2">
+                        <h1>Merkury</h1>
+                        Pierwsza planeta od słońca, jest także najmiejszą planetą układu słonecznego. Temperatura jej powierzchni waha się od -173&deg;C do 427&deg;C. Ma mase 3,3011 &bullet; 10<sup>23</sup>kg. Składa się w 70% z metali i 30% krzemianów.
+                    </div>
+                    <div id="planeta3">
+                        <h1>Wenus</h1>
+                        Druga planeta układu słonecznego. Jest trzecim względem jasności ciałem niebieskim widocznym na niebie. Skład chemiczny jest zbliżony do ziemi, poza atmesforą która składa się z dwutlenku węgla.
+                    </div>
+                    <div id="planeta4">
+                        <h1>Ziemia</h1>
+                        Trzecia planeta od słońca. Jedyna planeta układu słonecznego na której rozwija się życie. Jej masa to 5,97219 &bullet; 10<sup>24</sup>kg z promieniem 6371km.
+                    </div>
+                    <div id="planeta5">
+                        <h1>Mars</h1>
+                        Czwarta planeta od słońca. Jej odcień bierze się od tlenków żelaza które pokrywają  jego powierzchnie. Jej masa wynosi 6,4171 &bullet; 10<sup>23</sup>kg. Jego atmosfera składa się z 95,32% dwutlenku węgla.
+                    </div>
+                    <div id="planeta6">
+                        <h1>Jowisz</h1>
+                        Piąta planeta od słońca. Jest olbrzymem gazowym i prawdopodobnie ma skaliste jądro. Jego masa jest trochę miejsza od 1/1000 masy słońca (1,89819 &bullet; 10<sup>27</sup>kg) W głównej części składa się z wodoru i helu
+                    </div>
+                    <div id="planeta7">
+                        <h1>Saturn</h1>
+                        Szósta planeta od słońca. Też jest gazowym olbrzymem i w maju 2023 roku znanych było jego 146 naturalnych satelitów, co czyni go planetą z największą ich ilością. Posiada pierścień składający się z cząstek lodu.
+                    </div>
+                    <div id="planeta8">
+                        <h1>Uran</h1>
+                        Siódma planeta od słońca. Jest trzecim olbrzymem gazowym. Jej masa wynosi 8,6813 &bullet; 10<sup>25</sup>km z gęstością 1271kg/m<sup>3</sup>
+                    </div>
+                    <div id="planeta9">
+                        <h1>Neptun</h1>
+                        Ósma i ostatnia planeta układu słonecznego. Jest ponad 17 razy masywniejsza od ziemi. Jest jedyną planetą której istnienie wykazano na podstawie obliczeń matematycznych a nie obserwacji nieba.
+                    </div>
+                </div>
+                <img src="img/left angle bracket.png" alt="left angle bracket" class="bracket" onclick="img(-1)">
+                <img src="img/right angle bracket.png" alt="right angle bracket" class="bracket" onclick="img(1)">
+            </div>
+        </main>
+        <footer>
+            <br>
+            <div id="zegar"></div>
+        </footer>
+    </div>
+</body>
+</html>
+<script>
+    var licznik = 1
+function zegarek(){
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes(); 
+    var s = date.getSeconds(); 
+    
+    if(h<10){h='0'+h}
+    if(m<10){m='0'+m}
+    if(s<10){s='0'+s}
+    
+    var czas = h + ":" + m + ":" + s;
+    zegar.innerHTML = czas
+    setTimeout(zegarek, 1000);
+    
+}
+function resetplanety(){
+    planeta1.style.height="0px"
+    planeta2.style.height="0px"
+    planeta3.style.height="0px"
+    planeta4.style.height="0px"
+    planeta5.style.height="0px"
+    planeta6.style.height="0px"
+    planeta7.style.height="0px"
+    planeta8.style.height="0px"
+    planeta9.style.height="0px"
+}
+function planeta(liczba){
+    resetplanety();
+    switch(liczba){
+        case 1:
+            planeta1.style.height="300px"
+            console.log("1");
+            break;
+        case 2:
+            planeta2.style.height="300px"   
+            console.log("2");
+            break;
+        case 3:
+            planeta3.style.height="300px"   
+            console.log("3");
+            break;
+        case 4:
+            planeta4.style.height="300px"   
+            console.log("4");
+            break;
+        case 5:
+            planeta5.style.height="300px"   
+            console.log("5");
+            break;
+        case 6:
+            planeta6.style.height="300px"   
+            console.log("6");
+            break;
+        case 7:
+            planeta7.style.height="300px"   
+            console.log("7");
+            break;
+        case 8:
+            planeta8.style.height="300px"   
+            console.log("8");
+            break;
+        case 9:
+            planeta9.style.height="300px"   
+            console.log("9");
+            break;
+        default:
+            console.log("problem z funkcja planety")
+            break;
+        
+    }
+}
+let nrplanety = 1;
+function img(liczba){
+    if(nrplanety == 9){
+        nrplanety =1;
+    }else if (nrplanety == 1 && liczba<0){
+        nrplanety =9;
+    }else{
+        nrplanety += liczba
+    }
+    planeta(nrplanety);
+}
+</script>
